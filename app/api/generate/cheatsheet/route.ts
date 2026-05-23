@@ -46,7 +46,7 @@ export async function POST(req: NextRequest) {
     step = 'ai-call'
     const result = await generateCompletion(
       [{ role: 'user', content: prompt }],
-      { temperature: 0.3, maxTokens: 4096 }
+      { temperature: 0.3, maxTokens: 8192 }
     )
 
     step = 'save-cheatsheet'
