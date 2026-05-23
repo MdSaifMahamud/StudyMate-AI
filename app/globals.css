@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    --background: 248 250 252;
+    --foreground: 15 23 42;
+    --card: 255 255 255;
+    --border: 226 232 240;
+    --muted: 241 245 249;
+    --primary: 99 102 241;
+    --primary-foreground: 255 255 255;
+  }
+
+  .dark {
+    --background: 15 23 42;
+    --foreground: 248 250 252;
+    --card: 30 41 59;
+    --border: 51 65 85;
+    --muted: 30 41 59;
+    --primary: 129 140 248;
+    --primary-foreground: 15 23 42;
+  }
+
+  * {
+    @apply border-slate-200 dark:border-slate-700;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-900 font-sans antialiased dark:bg-slate-900 dark:text-slate-100;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-1.5 h-1.5;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 rounded-full dark:bg-slate-600;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-2xl border border-slate-200 shadow-sm dark:bg-slate-800 dark:border-slate-700;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium rounded-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed active:scale-95 dark:bg-slate-700 dark:hover:bg-slate-600 dark:text-slate-200;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 border border-slate-200 hover:bg-slate-50 text-slate-700 font-medium rounded-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed dark:border-slate-600 dark:hover:bg-slate-700 dark:text-slate-200;
+  }
+
+  .input {
+    @apply w-full px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100 dark:placeholder-slate-500;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-slate-700 mb-1.5 dark:text-slate-300;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-primary {
+    @apply badge bg-primary-100 text-primary-700 dark:bg-primary-900/30 dark:text-primary-400;
+  }
+
+  .badge-green {
+    @apply badge bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400;
+  }
+
+  .badge-red {
+    @apply badge bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400;
+  }
+
+  .badge-yellow {
+    @apply badge bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400;
+  }
+
+  .badge-slate {
+    @apply badge bg-slate-100 text-slate-600 dark:bg-slate-700 dark:text-slate-300;
+  }
+
+  .section-title {
+    @apply text-2xl font-bold text-slate-900 dark:text-slate-100;
+  }
+
+  .page-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent;
+  }
+}
+
+/* Flashcard flip animation */
+.flashcard-container {
+  perspective: 1000px;
+}
+
+.flashcard-inner {
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.flashcard-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.flashcard-front,
+.flashcard-back {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.flashcard-back {
+  transform: rotateY(180deg);
+}
+
+/* Markdown prose styles */
+.prose-studymate {
+  @apply text-slate-700 dark:text-slate-300;
+}
+
+.prose-studymate h1 { @apply text-2xl font-bold mt-6 mb-3 text-slate-900 dark:text-slate-100; }
+.prose-studymate h2 { @apply text-xl font-semibold mt-5 mb-2 text-slate-800 dark:text-slate-200; }
+.prose-studymate h3 { @apply text-lg font-semibold mt-4 mb-2 text-slate-800 dark:text-slate-200; }
+.prose-studymate p { @apply mb-3 leading-relaxed; }
+.prose-studymate ul { @apply list-disc list-inside mb-3 space-y-1; }
+.prose-studymate ol { @apply list-decimal list-inside mb-3 space-y-1; }
+.prose-studymate li { @apply ml-2; }
+.prose-studymate strong { @apply font-semibold text-slate-900 dark:text-slate-100; }
+.prose-studymate code { @apply px-1.5 py-0.5 bg-slate-100 dark:bg-slate-700 rounded text-sm font-mono text-primary-600 dark:text-primary-400; }
+.prose-studymate pre { @apply bg-slate-900 text-slate-100 p-4 rounded-xl overflow-x-auto mb-3; }
+.prose-studymate blockquote { @apply border-l-4 border-primary-300 pl-4 italic text-slate-600 dark:text-slate-400 mb-3; }
+.prose-studymate table { @apply w-full border-collapse mb-4; }
+.prose-studymate th { @apply bg-slate-100 dark:bg-slate-700 px-3 py-2 text-left font-semibold border border-slate-200 dark:border-slate-600; }
+.prose-studymate td { @apply px-3 py-2 border border-slate-200 dark:border-slate-600; }
+.prose-studymate a { @apply text-primary-600 dark:text-primary-400 underline hover:no-underline; }
+
+/* Loading skeleton */
+.skeleton {
+  @apply animate-pulse bg-slate-200 dark:bg-slate-700 rounded-lg;
+}
+
+/* Toast overrides */
+.react-hot-toast {
+  @apply font-sans;
+}

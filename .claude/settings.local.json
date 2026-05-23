@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p \"/home/mdsaif/Desktop/StudyMate AI/app/api/auth/signup\" \"/home/mdsaif/Desktop/StudyMate AI/app/api/auth/login\" \"/home/mdsaif/Desktop/StudyMate AI/app/api/auth/logout\" \"/home/mdsaif/Desktop/StudyMate AI/app/api/pdf/upload\" \"/home/mdsaif/Desktop/StudyMate AI/app/api/pdf/list\" \"/home/mdsaif/Desktop/StudyMate AI/app/api/pdf/[id]/pages\" \"/home/mdsaif/Desktop/StudyMate AI/app/api/pdf/search\" \"/home/mdsaif/Desktop/StudyMate AI/app/api/chat\" \"/home/mdsaif/Desktop/StudyMate AI/app/api/generate/explanation\" \"/home/mdsaif/Desktop/StudyMate AI/app/api/generate/flashcards\" \"/home/mdsaif/Desktop/StudyMate AI/app/api/generate/cheatsheet\" \"/home/mdsaif/Desktop/StudyMate AI/app/api/generate/quiz\" \"/home/mdsaif/Desktop/StudyMate AI/app/api/generate/study-plan\" \"/home/mdsaif/Desktop/StudyMate AI/app/api/quiz/submit\" \"/home/mdsaif/Desktop/StudyMate AI/app/api/quiz/results\" \"/home/mdsaif/Desktop/StudyMate AI/app/api/flashcards\" \"/home/mdsaif/Desktop/StudyMate AI/app/api/progress\" && echo \"Directories created\")",
+      "Bash(mkdir -p \"/home/mdsaif/Desktop/StudyMate AI/app/\\(auth\\)/login\" \"/home/mdsaif/Desktop/StudyMate AI/app/\\(auth\\)/signup\" \"/home/mdsaif/Desktop/StudyMate AI/app/dashboard\" \"/home/mdsaif/Desktop/StudyMate AI/app/study/[pdfId]\" \"/home/mdsaif/Desktop/StudyMate AI/app/flashcards/[setId]\" \"/home/mdsaif/Desktop/StudyMate AI/app/quiz/[quizId]\" \"/home/mdsaif/Desktop/StudyMate AI/app/progress\" \"/home/mdsaif/Desktop/StudyMate AI/app/auth/callback\" \"/home/mdsaif/Desktop/StudyMate AI/components/ui\" \"/home/mdsaif/Desktop/StudyMate AI/public\" && echo \"App directories created\")",
+      "Bash(mkdir -p \"/home/mdsaif/Desktop/StudyMate AI/app/api/quiz/[quizId]\")"
+    ],
+    "additionalDirectories": [
+      "/home/mdsaif/Desktop/StudyMate AI/app/api/pdf/[id]",
+      "/home/mdsaif/Desktop/StudyMate AI/app/study",
+      "/home/mdsaif/Desktop/StudyMate AI/app/api/quiz"
+    ]
+  }
+}
