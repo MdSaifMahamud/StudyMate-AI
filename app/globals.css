@@ -161,6 +161,19 @@
 .prose-studymate td { @apply px-3 py-2 border border-slate-200 dark:border-slate-600; }
 .prose-studymate a { @apply text-primary-600 dark:text-primary-400 underline hover:no-underline; }
 
+/* KaTeX math rendering */
+.prose-studymate .katex {
+  font-size: 1.05em;
+}
+
+.prose-studymate .katex-display {
+  @apply my-4 overflow-x-auto overflow-y-hidden;
+}
+
+.dark .prose-studymate .katex {
+  color: rgb(226 232 240);
+}
+
 /* Loading skeleton */
 .skeleton {
   @apply animate-pulse bg-slate-200 dark:bg-slate-700 rounded-lg;

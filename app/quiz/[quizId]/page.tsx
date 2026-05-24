@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { useRouter, useParams } from 'next/navigation'
 import Link from 'next/link'
-import ReactMarkdown from 'react-markdown'
+import MarkdownContent from '@/components/MarkdownContent'
 import {
   ArrowLeft, ChevronLeft, ChevronRight, Clock, CheckCircle,
   XCircle, Trophy, RefreshCw, BarChart3, AlertCircle, Timer
@@ -520,7 +520,7 @@ function QuestionCard({
           </div>
           {question.explanation && (
             <div className="prose-studymate text-xs mt-2 text-slate-600 dark:text-slate-400">
-              <ReactMarkdown>{question.explanation}</ReactMarkdown>
+              <MarkdownContent>{question.explanation}</MarkdownContent>
             </div>
           )}
         </div>

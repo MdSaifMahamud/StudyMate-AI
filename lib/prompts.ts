@@ -3,6 +3,11 @@
 // All prompts are centralized here for easy editing
 // ================================================
 
+export const LATEX_FORMAT_INSTRUCTIONS = `Use LaTeX for all mathematical expressions:
+- Inline: $E = mc^2$
+- Display (own line): $$\\int_a^b f(x)\\,dx$$
+- Do not put LaTeX inside backticks or code blocks.`
+
 export const SYSTEM_PROMPT_BASE = `You are StudyMate AI, an expert educational AI tutor designed specifically to help students study PDF content and prepare for exams. Your core mission is to make complex topics easy to understand.
 
 CRITICAL RULES:
@@ -11,7 +16,12 @@ CRITICAL RULES:
 3. NEVER hallucinate or invent facts, definitions, or page references
 4. Always cite page numbers when referencing specific content (e.g., "As mentioned on Page 32...")
 5. Be student-friendly, clear, and encouraging in tone
-6. Use simple language unless asked for technical depth`
+6. Use simple language unless asked for technical depth
+7. Format all mathematical expressions using LaTeX:
+   - Inline math: $E = mc^2$, $x^2 + y^2 = r^2$
+   - Display/block math on its own line: $$\\int_0^1 x^2 \\, dx = \\frac{1}{3}$$
+   - Use LaTeX for fractions (\\frac{a}{b}), subscripts/superscripts, Greek letters, integrals, summations, matrices, and chemical formulas when applicable
+   - Do NOT wrap LaTeX in backticks or code blocks — write delimiters directly in the text`
 
 export function buildChatSystemPrompt(params: {
   pdfName: string
@@ -48,7 +58,8 @@ When answering, format your response clearly with:
 - Main answer/explanation
 - Page references where applicable (e.g., [Page 32])
 - Examples if helpful
-- Key points to remember (if relevant)`
+- Key points to remember (if relevant)
+- LaTeX for all formulas and equations ($inline$ or $$display$$)`
 }
 
 export function buildChatUserPrompt(params: {
@@ -119,7 +130,9 @@ Generate a complete, well-structured explanation with:
 # Possible Exam Questions
 [5-7 likely exam questions from this section]
 
-Use ONLY the provided PDF content. Include page references like [Page 32] where applicable.`
+Use ONLY the provided PDF content. Include page references like [Page 32] where applicable.
+
+${LATEX_FORMAT_INSTRUCTIONS}`
 }
 
 export function buildFlashcardPrompt(params: {
@@ -215,7 +228,7 @@ Return ONLY a valid JSON array in this exact format:
     "type": "mcq|true_false|fill_blank|short_answer|long_answer|viva",
     "options": ["Option A", "Option B", "Option C", "Option D"],
     "correctAnswer": "The correct answer",
-    "explanation": "Why this is correct, with page reference",
+    "explanation": "Why this is correct, with page reference. Use $...$ for inline math in explanations.",
     "pageNumber": 32,
     "topic": "Topic name",
     "difficulty": "easy|medium|hard"
@@ -285,7 +298,9 @@ Create a cheat sheet with this structure:
 ### Must Memorize
 [The absolute most critical facts]
 
-Use ONLY the provided PDF content. Include page references throughout.`
+Use ONLY the provided PDF content. Include page references throughout.
+
+${LATEX_FORMAT_INSTRUCTIONS}`
 }
 
 export function buildStudyPlanPrompt(params: {
@@ -340,7 +355,9 @@ Format the plan as:
 [Last week before exam approach]
 
 ## Tips for Success
-[5 personalized tips based on preparation level]`
+[5 personalized tips based on preparation level]
+
+${LATEX_FORMAT_INSTRUCTIONS}`
 }
 
 export function buildSimplifyPrompt(text: string): string {

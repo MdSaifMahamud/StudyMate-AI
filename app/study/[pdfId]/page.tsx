@@ -3,8 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { useRouter, useParams } from 'next/navigation'
 import Link from 'next/link'
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
+import MarkdownContent from '@/components/MarkdownContent'
 import {
   BookOpen, Send, Loader2, ChevronLeft, MessageSquare, FileText,
   Layers, Brain, Search, X, AlertCircle, Sparkles, RefreshCw,
@@ -411,7 +410,7 @@ export default function StudyWorkspace() {
                       <p className="text-sm leading-relaxed">{msg.content}</p>
                     ) : (
                       <div className="prose-studymate text-sm">
-                        <ReactMarkdown remarkPlugins={[remarkGfm]}>{msg.content}</ReactMarkdown>
+                        <MarkdownContent>{msg.content}</MarkdownContent>
                       </div>
                     )}
                     {msg.pageRefs && msg.pageRefs.length > 0 && (
@@ -515,7 +514,7 @@ export default function StudyWorkspace() {
               {explanation ? (
                 <div className="max-w-3xl mx-auto">
                   <div className="prose-studymate">
-                    <ReactMarkdown remarkPlugins={[remarkGfm]}>{explanation}</ReactMarkdown>
+                    <MarkdownContent>{explanation}</MarkdownContent>
                   </div>
                   <div className="mt-6 flex gap-3">
                     <button

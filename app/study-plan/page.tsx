@@ -3,8 +3,7 @@
 import { Suspense, useState, useEffect } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
+import MarkdownContent from '@/components/MarkdownContent'
 import { ArrowLeft, Calendar, Clock, Target, Loader2, Sparkles, BookOpen } from 'lucide-react'
 import toast from 'react-hot-toast'
 import { supabase } from '@/lib/supabase'
@@ -257,7 +256,7 @@ function StudyPlanPage() {
                   </button>
                 </div>
                 <div className="prose-studymate text-sm max-h-[600px] overflow-y-auto">
-                  <ReactMarkdown remarkPlugins={[remarkGfm]}>{plan}</ReactMarkdown>
+                  <MarkdownContent>{plan}</MarkdownContent>
                 </div>
               </div>
             ) : (
