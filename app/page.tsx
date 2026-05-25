@@ -89,8 +89,8 @@ export default function LandingPage() {
               <Link href="/login" className="btn-secondary text-sm px-4 py-2">
                 Log In
               </Link>
-              <Link href="/signup" className="btn-primary text-sm px-4 py-2">
-                Get Started Free
+              <Link href="/try" className="btn-primary text-sm px-4 py-2">
+                Try Free
               </Link>
             </div>
           </div>
@@ -121,12 +121,12 @@ export default function LandingPage() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-            <Link href="/signup" className="btn-primary text-base px-8 py-3.5 shadow-lg shadow-primary-200 dark:shadow-primary-900/50">
-              Start Studying Free
+            <Link href="/try" className="btn-primary text-base px-8 py-3.5 shadow-lg shadow-primary-200 dark:shadow-primary-900/50">
+              Try Free — No Account Needed
               <ArrowRight className="w-5 h-5" />
             </Link>
-            <Link href="/login" className="btn-outline text-base px-8 py-3.5">
-              I already have an account
+            <Link href="/signup" className="btn-outline text-base px-8 py-3.5">
+              Create Account
             </Link>
           </div>
 
@@ -227,10 +227,15 @@ export default function LandingPage() {
           <p className="text-lg text-slate-600 dark:text-slate-400 mb-8">
             Upload your first PDF and start generating study materials in under a minute.
           </p>
-          <Link href="/signup" className="btn-primary text-base px-10 py-4 shadow-lg shadow-primary-200 dark:shadow-primary-900/50">
-            Get Started — It&apos;s Free
-            <ArrowRight className="w-5 h-5" />
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/try" className="btn-primary text-base px-10 py-4 shadow-lg shadow-primary-200 dark:shadow-primary-900/50">
+              Try Free — No Account Needed
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+            <Link href="/signup" className="btn-outline text-base px-10 py-4">
+              Create Account
+            </Link>
+          </div>
         </div>
       </section>
 
